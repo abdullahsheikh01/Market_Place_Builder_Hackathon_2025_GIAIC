@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.popular_text{
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+}
+.footerButton::placeholder{
+  font-family: 'Inter,sans-serif';
+  size: 16px;
+  color: #9A9CAA;
+  font-weight: normal;
+}
+.footSpan{
+  color: #272343;
+  opacity:1;
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+label{
+  font-weight:500;
+  font-size: 16px;
+  font-family: 'Poppins,sans-serif'
+}
+input,textarea{
+  border-radius: 10px;
+  border: 1px solid #9F9F9F;
+  margin-top: 15px;
+  padding-left: 15px;
+  font-family: 'Poppins,sans-serif';
+  size: 16px;
+  color: black;
+  font-weight: normal;
+}
+input{
+  height: 60px;
+  width: 423px;
+}
+input::placeholder,textarea::placeholder{
+  font-family: 'Poppins,sans-serif';
+  size: 16px;
+  color: #9A9CAA;
+  font-weight: normal;
+}
+
+@media (max-width: 768px){
+  input{
+    width: 100%;
+  }
+}
