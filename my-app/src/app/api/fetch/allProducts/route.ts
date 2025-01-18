@@ -7,7 +7,14 @@ export async function GET() {
         const res = await client.fetch(query);
         return NextResponse.json(res)
 }
-catch{
-    return "Unknown Error"
-    }
+    catch (error) {
+        console.log(error)
+        return new Response(
+          JSON.stringify({ error: "Failed to fetch categories" }),
+          {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+      }
 }
