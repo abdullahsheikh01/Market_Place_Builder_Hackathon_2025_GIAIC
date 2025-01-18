@@ -1,6 +1,4 @@
 import ProductSectionComp from "../productSection2";
-import { ProductSection1 } from "../../../../productsData";
-import axios from "axios";
 const FeaturedProducts = async() => {
   const {baseUrl}=process.env
   const resp = await fetch(`${baseUrl}/api/fetch/featured`);
