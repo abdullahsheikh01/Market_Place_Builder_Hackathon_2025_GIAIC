@@ -1,30 +1,34 @@
-"use client";
 import Image from "next/image";
 import { ProductSection7 } from "../../../../productsData";
-import Link from "next/link";
-import { Params } from "next/dist/server/request/params";
-import { useParams } from "next/navigation";
-const Products = () => {
-  const data : Params = useParams();
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+const Products =  async ({params}:{params:Promise<{slug:string}>}) => {
+  const slug = (await params).slug
+  const query = `*[_type=="product"&&id=="${slug}"]{
+    title,image,description,price,priceWithoutDiscount
+    }[0]`;
+    const data= await client.fetch(query);
+    const img = urlFor(data.image).url()
   return (
     <div>
       <div className="pl-[208px] flex pt-[132px] gap-[88px] pr-[268px]">
         <Image
-          src={`/${data.slug}`}
-          alt="Image"
+          src={img}
+          alt={data.title}
           height={500}
           width={540}
         />
         <div className="flex-col">
           <div className="h-[246px] border-b-[1px] border-b-[#D9D9D9]">
             <h1 className="font-inter text-6xl font-bold text-[#272343]">
-              Library Stool Chair
+              {data.title}
             </h1>
             <button
               className="w-[115.2px] h-9 bg-[#029FAE] rounded-[100px] font-inter font-semibold text-base text-white mt-9"
             >
-              $20.00 USD
+              ${data.price}
             </button>
+            <del>{data.priceWithoutDiscount?`$${data.priceWithoutDiscount}`:""}</del>
           </div>
           <div className="mt-[30px]">
             <p className="font-inter text-[17px] opacity-60 text-[rgb(39,35,67)]">
@@ -56,8 +60,8 @@ const Products = () => {
         <div className="mt-[69px] grid grid-cols-5 gap-7 mb-[141px]">
           {ProductSection7.map((product, index) => {
             return (
-              <Link
-                href={`/products/${product.imgUrl}`}
+              <div
+                // href={`/products/i`}
                 className="w-[210.4px] h-[244.8px]"
                 key={index}
               >
@@ -75,12 +79,15 @@ const Products = () => {
                     $99
                   </span>
                 </p>
-              </Link>
+              </div>
             );
           })}
         </div>
       </div>
     </div>
+    // <div>
+    //   {data.title}
+    // </div>
   );
 };
 
