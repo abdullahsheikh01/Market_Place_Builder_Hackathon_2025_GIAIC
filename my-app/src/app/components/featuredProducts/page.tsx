@@ -1,11 +1,11 @@
 "use client";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import ProductSectionComp, { Product } from "../productSection2";
 import axios from"axios";
 const FeaturedProducts = () => {
   async function getData() {
     const resp = await axios.get("/api/fetch/featured");
-    setData(resp.data)
+    setData(resp.data);
     }
   const [data,setData] = useState<Product[]>([])
   useEffect(()=>{
