@@ -1,12 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
 import ProductSectionComp, { Product } from "../productSection2";
-import { getData } from "../featuredProducts/page";
+import axios from "axios";
+// import { getData } from "../featuredProducts/page";
 const OurProducts = ()=> {
   const [data,setData] = useState<Product[]>([]);
+  async function getData() {
+    const resp = await axios.get("/api/fetch/ourProducts");
+    setData(resp.data);
+    }
   useEffect(()=>{
-        getData("/api/fetch/ourProducts",setData)
-      })
+      getData()
+    })
   return (
     <div className='mt-[173px] px-[15.625%]'>
       <div className='flex justify-center'>
