@@ -1,7 +1,7 @@
 import Hero from "@/app/components/hero/page";
 import CompaniesLogos from "@/app/components/companiesLogos/page";
 import FeaturedProducts from "@/app/components/featuredProducts/page";
-import TopCategories from "@/app/components/topCategories/page";
+import Categories from "@/app/components/categories/page";
 import PopularStyles from "@/app/components/popularStyles/page";
 import OurProducts from "@/app/components/ourProducts/page";
 export default function Home(){
@@ -10,7 +10,7 @@ export default function Home(){
       <Hero/>
       <CompaniesLogos/>
       <FeaturedProducts/>
-      <TopCategories/>
+      <Categories/>
       <PopularStyles/>
       <div>
       <OurProducts/>

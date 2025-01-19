@@ -1,12 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { categoryProducts } from "../../../../categoryProducts";
-import { categoryProduct } from "../../../../categoryProducts";
 import Link from "next/link";
-import { NextResponse } from "next/server";
 import axios from "axios";
 import { urlFor } from "@/sanity/lib/image";
-const TopCategories = () => {
+const Categories = () => {
   interface Category{
     id: string;
     title: string;
@@ -67,5 +64,5 @@ const TopCategories = () => {
     )
   }
   
-export default TopCategories;
+export default Categories;
   
