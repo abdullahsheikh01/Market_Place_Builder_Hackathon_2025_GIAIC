@@ -10,7 +10,7 @@ export async function GET() {
 catch (error) {
     console.log(error)
     return new Response(
-      JSON.stringify({ error: "Failed to fetch categories" }),
+      JSON.stringify({ error: "Failed to fetch" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json" },
