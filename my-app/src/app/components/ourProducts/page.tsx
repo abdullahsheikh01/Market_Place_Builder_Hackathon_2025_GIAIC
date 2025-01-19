@@ -1,9 +1,12 @@
-import ProductSectionComp from "../productSection2";
-
-const OurProducts = async ()=> {
-  const {baseUrl}=process.env
-  const resp = await fetch(`${baseUrl}/api/fetch/ourProducts`);
-  const data = await resp.json();
+"use client";
+import { useEffect, useState } from "react";
+import ProductSectionComp, { Product } from "../productSection2";
+import { getData } from "../featuredProducts/page";
+const OurProducts = ()=> {
+  const [data,setData] = useState<Product[]>([]);
+  useEffect(()=>{
+        getData("/api/fetch/ourProducts",setData)
+      })
   return (
     <div className='mt-[173px] px-[15.625%]'>
       <div className='flex justify-center'>

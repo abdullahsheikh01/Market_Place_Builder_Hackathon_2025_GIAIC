@@ -1,7 +1,7 @@
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-interface Product {
+export interface Product {
     image: {
       _type: string;
       asset: {
