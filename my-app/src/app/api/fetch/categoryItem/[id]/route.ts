@@ -1,7 +1,6 @@
 import { client } from "@/sanity/lib/client";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
-export async function GET(req:NextApiRequest,content:{
+import { NextRequest, NextResponse } from "next/server";
+export async function GET(req:NextRequest,content:{
     params:{
         id:string
     }
