@@ -1,18 +1,10 @@
-"use client";
 import { cart } from "@/app/cart";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 const Cart = () => {
-    interface cartProduct{
-        imgUrl: string ,
-        title:string,
-        price:number,
-    };
-    const [cartProducts,setCartProducts] = useState<cartProduct[]>([]);
   return (
-    <div>        {
-            cartProducts.length==0?
+    <div>{
+            cart.length==0?
             <div className="h-[50vh] flex justify-center items-center text-center flex-col">
                 <h2 className="font-inter font-bold text-[40px]">You do not have any product in your cart</h2>
                 <Link href="/pages/products">
@@ -30,7 +22,7 @@ const Cart = () => {
             Bag</h4>
             <div className="flex-col">
                 {
-                    cartProducts.map(
+                    cart.map(
                         (product,index)=>{
                             return(
                                 <div key={index} className="w-[770.4px] 2xl:w-[770.7px] xl:w-[662px] lg:w-[563px] md:w-[401px] sm:w-full exsm:w-[128px] 

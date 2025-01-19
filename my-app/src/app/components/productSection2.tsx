@@ -33,7 +33,7 @@ const ProductSectionComp = (prop:{
                 className="font-inter text-[14px]
                  text-[#9A9CAA]">
                     ${product.priceWithoutDiscount}</span>:<></>
-                    console.log(product)
+                    // console.log(product)
                 return(
                     <div key={index}>
                         <Link href={`/products/${product.id}`}>
