@@ -1,19 +1,36 @@
+"use client";
 import { cart } from "@/app/cart";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 const Cart = () => {
-    
+    interface cartProduct{
+        imgUrl: string ,
+        title:string,
+        price:number,
+    };
+    const [cartProducts,setCartProducts] = useState<cartProduct[]>([]);
   return (
-    <div className="pl-[226.4px] pr-[232px] flex gap-[100px] 2xl:gap-[100px] xl:gap-[86px] lg:gap-[73px] md:gap-[52px] sm:gap-2 exsm:gap-[17px] 
- 2xl:pl-[226.4px] xl:pl-[194px] 
-    lg:pl-[165px] md:pl-[110px] sm:pl-[100px] exsm:pl-[38px] 2xl:pr-[232px] xl:pr-[200px] lg:pr-[169px] md:pr-[130px]
-    sm:pr-[102px] exsm:pr-[39px] sm:flex-col exsm:flex-col">
-        <div className="mt-[89px] mb-[84px] sm:mt-3 exsm:mt-3">
+    <div>        {
+            cartProducts.length==0?
+            <div className="h-[50vh] flex justify-center items-center text-center flex-col">
+                <h2 className="font-inter font-bold text-[40px]">You do not have any product in your cart</h2>
+                <Link href="/pages/products">
+                <button type="submit" className="h-14 w-[150.6px] bg-[#029FAE] rounded-[8px] font-inter 
+                font-semibold text-base text-white ml-3 hover:bg-blue-300">Browse Products</button>
+                </Link>
+            </div>
+            :<div className="pl-[226.4px] pr-[232px] flex gap-[100px] 2xl:gap-[100px] xl:gap-[86px] lg:gap-[73px] md:gap-[52px] sm:gap-2 exsm:gap-[17px] 
+            2xl:pl-[226.4px] xl:pl-[194px] 
+               lg:pl-[165px] md:pl-[110px] sm:pl-[100px] exsm:pl-[38px] 2xl:pr-[232px] xl:pr-[200px] lg:pr-[169px] md:pr-[130px]
+               sm:pr-[102px] exsm:pr-[39px] sm:flex-col exsm:flex-col">
+            <div className="mt-[89px] mb-[84px] sm:mt-3 exsm:mt-3">
             <h4 
             className="font-inter font-medium text-[22px] text-[#111111]">
             Bag</h4>
             <div className="flex-col">
                 {
-                    cart.map(
+                    cartProducts.map(
                         (product,index)=>{
                             return(
                                 <div key={index} className="w-[770.4px] 2xl:w-[770.7px] xl:w-[662px] lg:w-[563px] md:w-[401px] sm:w-full exsm:w-[128px] 
@@ -83,6 +100,8 @@ const Cart = () => {
                 Member Checkout
             </button>
         </div>
+            </div>
+            }
     </div>
   )
 };
