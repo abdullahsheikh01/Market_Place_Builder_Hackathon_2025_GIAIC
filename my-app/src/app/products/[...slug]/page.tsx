@@ -18,7 +18,6 @@ const Products = () => {
     title,image,description,price,priceWithoutDiscount,id
     }[0]`;
     const dataa= await client.fetch(query);
-    const img = urlFor(dataa.image).url();
     setData(dataa)
   }
   const img = data?urlFor(data.image).url():"";
