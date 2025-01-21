@@ -9,7 +9,6 @@ import { Product } from "@/app/components/productSection2";
 import { addToCart } from "@/app/features/cartSlice";
 import { useDispatch } from "react-redux";
 const Products = () => {
-  // const slug = (await params).slug
   const [data,setData] = useState<Product|null>();
   const {slug} = useParams();
   const dispatch = useDispatch();
