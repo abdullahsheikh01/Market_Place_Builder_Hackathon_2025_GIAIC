@@ -112,7 +112,9 @@ const Products = () => {
             })}
           </div>
         </div>
-      </div>:<></>
+      </div>:<div className="flex justify-center">
+      <h1 className="font-bold text-[40px] font-inter text-center">An Unknown Error Occurred</h1>
+      </div>
       }
     </div>
     // <div>
