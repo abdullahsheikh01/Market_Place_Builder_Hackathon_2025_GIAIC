@@ -2,9 +2,12 @@
 import { useState } from "react";
 import Image from "next/image"
 import Link from "next/link";
-import { cart } from "@/app/cart";
+import { useSelector } from "react-redux";
+import { cartType } from "@/app/features/cartSlice";
 const BottomHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const cartt = useSelector((state: { cart: cartType }) => state.cart);
+    const cart = cartt.cartItems;
     return (
         <div className="flex items-center  h-[84px]  
     bg-[#F0F2F3] justify-between 2xl:px-[15.625%] xl:px-[206px] lg:px-[175px] md:px-[125px] sm:px-[106px] exsm:px-[40px]">
@@ -25,11 +28,11 @@ const BottomHeader = () => {
                 <p className="font-inter font-medium text-[12px]">
                     Cart
                 </p>
-                <div className="flex h-5 w-5 rounded-[50%] bg-[#173917]
+                {cart.length==0?<></>:<div className="flex h-5 w-5 rounded-[50%] bg-[#173917]
                  text-white text-[10px] items-center 
                   font-inter justify-center">
                     <p>{cart.length}</p>
-                </div>
+                </div>}
             </Link>
             <div className="2xl:hidden xl:hidden lg:hidden md:flex sm:flex exsm:flex">
       <div className="">
