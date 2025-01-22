@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
-import { ProductSection7 } from "../../../../productsData";
+import { ProductSection7 } from "../../../productsData";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { useEffect, useState } from "react";
 import { Product } from "@/app/components/productSection2";
 import { addToCart } from "@/app/features/cartSlice";
 import { useDispatch } from "react-redux";
-const ProductsComp = ({ params }: { params: { slug: string } }) => {
+const ProductsComp = ( params :  { slug: string } ) => {
     const [data,setData] = useState<Product|null>();
         const dispatch = useDispatch();
         async function getData(){
