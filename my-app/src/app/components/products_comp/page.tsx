@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ProductSection7 } from "../../../../productsData";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Product } from "@/app/components/productSection2";
 import { addToCart } from "@/app/features/cartSlice";
