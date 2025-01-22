@@ -52,7 +52,12 @@ const cartSlice = createSlice({
             return item.id !== action.payload.id;
           }
         );
-  
+        const index = state.cartItems.findIndex(
+          (item: CartItem) => item.id === action.payload.id
+        );
+        if (index >= 0 && state.cartItems[index].quantity) {
+          state.cartTotalAmount -= action.payload.price ? action.payload.price*state.cartItems[index].quantity : 0;
+        }
         state.cartItems = updatedCart;
         toast.error(`${action.payload.title} has been deleted from Cart`);
   
