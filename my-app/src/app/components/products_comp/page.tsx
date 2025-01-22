@@ -7,13 +7,11 @@ import { useEffect, useState } from "react";
 import { Product } from "@/app/components/productSection2";
 import { addToCart } from "@/app/features/cartSlice";
 import { useDispatch } from "react-redux";
-const ProductsComp = (param:{
-    slug:string
-}) => {
+const ProductsComp = ({ params }: { params: { slug: string } }) => {
     const [data,setData] = useState<Product|null>();
         const dispatch = useDispatch();
         async function getData(){
-        const query = `*[_type=="product"&&id=="${param.slug}"]{
+        const query = `*[_type=="product"&&id=="${params.slug}"]{
           title,image,description,price,priceWithoutDiscount,id
           }[0]`;
           const dataa= await client.fetch(query);
