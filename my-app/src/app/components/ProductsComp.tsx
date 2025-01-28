@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import { ProductSection7 } from "../../../productsData";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { useEffect, useState } from "react";
 import { Product } from "@/app/components/productSection2";
 import { addToCart } from "@/app/features/cartSlice";
 import { useDispatch } from "react-redux";
+import FeaturedProducts from "./featuredProducts/page";
+import Loading from "./loading/page";
 const ProductsComp = ( params :  { slug: string } ) => {
     const [data,setData] = useState<Product|null>();
         const dispatch = useDispatch();
@@ -72,46 +73,12 @@ const ProductsComp = ( params :  { slug: string } ) => {
                   </div>
                 </div>
               </div>
-              <div className="px-[12.29%] mt-[123px]">
-                <div className="flex justify-between">
-                  <h3 className="font-inter font-bold text-2xl tracking-wide">
-                    FEATURED PRODUCTS
-                  </h3>
-                  <button
-                    className="font-inter font-bold text-[14px] w-[60px] border-b-[2px] border-b-black"
-                  >
-                    View All
-                  </button>
-                </div>
-                <div className="mt-[69px] grid grid-cols-5 gap-7 mb-[141px]">
-                  {ProductSection7.map((product, index) => {
-                    return (
-                      <div
-                        // href={`/products/i`}
-                        className="w-[210.4px] h-[244.8px]"
-                        key={index}
-                      >
-                        <Image
-                          src={product.imgUrl}
-                          width={210.4}
-                          height={210.4}
-                          alt={product.title}
-                        />
-                        <p className="mt-5 flex justify-between">
-                          <span className="font-inter text-base text-[#272343]">
-                            {product.title}
-                          </span>
-                          <span className="font-inter text-[14px] text-black font-bold">
-                            $99
-                          </span>
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
+              <div className="mt-52">
+              <FeaturedProducts />
               </div>
             </div>:<div className="flex justify-center">
-            <h1 className="font-bold text-[40px] font-inter text-center">An Unknown Error Occurred</h1>
+            {/* <h1 className="font-bold text-[40px] font-inter text-center">An Unknown Error Occurred</h1> */}
+            <Loading/>
             </div>
             }
           </div>
