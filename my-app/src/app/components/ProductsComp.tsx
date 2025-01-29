@@ -38,16 +38,20 @@ const ProductsComp = ( params :  { slug: string } ) => {
           <div>
             {
               data?<div>
-              <div className="pl-[208px] flex pt-[132px] gap-[88px] pr-[268px]">
+              <div className="pl-[208px] flex  gap-[88px] exsm:gap-[22px] pr-[268px] 2xl:pl-[208px] xl:pl-[179px] lg:pl-[152px] md:pl-[108px] sm:pl-[92px] exsm:pl-[35px] exsm:mt-3
+              2xl:pr-[268px] xl:pr-[231px] lg:pr-[195px] md:pr-[140px] sm:pr-[118px] exsm:pr-[45px] md:flex-col lg:pt-6 pt-6
+              exsm:flex-col
+">
                 <Image
                   src={img}
                   alt={data.title}
                   height={500}
                   width={540}
+                  className="md:h-[350px] md:w-[378px] lg:h-[350px] lg:w-[378px] exsm:h-[250px] exsm:w-[270px]"
                 />
                 <div className="flex-col">
-                  <div className="h-[246px] border-b-[1px] border-b-[#D9D9D9]">
-                    <h1 className="font-inter text-6xl font-bold text-[#272343]">
+                  <div className="h-[246px] border-b-[1px] border-b-[#D9D9D9] md:h-[170px] lg:h-[170px] exsm:h-[150px]">
+                    <h1 className="font-inter text-6xl font-bold text-[#272343] exsm:text-[50px]">
                       {data.title}
                     </h1>
                     <button
@@ -73,7 +77,7 @@ const ProductsComp = ( params :  { slug: string } ) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-52">
+              <div className="mt-52 mb-6">
               <FeaturedProducts />
               </div>
             </div>:<div className="flex justify-center">

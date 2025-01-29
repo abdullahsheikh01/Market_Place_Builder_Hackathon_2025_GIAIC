@@ -8,5 +8,4 @@ const Products = async(
   </div>
 );
 };
-
 export default Products;
