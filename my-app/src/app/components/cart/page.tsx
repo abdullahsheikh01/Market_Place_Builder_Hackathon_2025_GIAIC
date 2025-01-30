@@ -81,11 +81,19 @@ const Cart = () => {
                                 pb-8 relative mt-6">
                                     <Image src={image} height={150} width={150}
                                     alt={product.title?product.title:""}
+                                    className="h-28 w-28"
                                     />
                                     <div>
                                         <div className="flex flex-col gap-6 lg:gap-2">
                                             <h6 className="font-inter text-base text-[#272343]"
                                             >{product.title}</h6>
+                                            <div className=" hidden exsm:flex">
+                                            <p
+                                            className="font-inter text-[15px] text-[#111111]"
+                                            >MRP: ${product.price&&product.quantity?
+                                                product.price*product.quantity:0
+                                            }</p>
+                                        </div>
                                             <div className="font-inter text-[15px] text-[#757575]">
                                                 <p>
                                                     Ashen Slate/Cobalt Bliss</p>
@@ -115,7 +123,7 @@ const Cart = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className="absolute right-0 top-0">
+                                        <div className="absolute right-0 top-0 exsm:hidden">
                                             <p
                                             className="font-inter text-[15px] text-[#111111]"
                                             >MRP: ${product.price&&product.quantity?
