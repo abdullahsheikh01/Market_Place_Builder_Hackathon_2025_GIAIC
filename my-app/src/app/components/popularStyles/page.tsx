@@ -4,7 +4,7 @@ import { popularProduct } from "../../../../popularProducts";
 import Link from "next/link";
 const PopularStyles = () => {
   return (
-    <div className="flex gap-0 px-[15.625%] mt-[229px]">
+    <div className="flex gap-0 px-[15.625%] mt-[229px] md:hidden sm:hidden exsm:hidden">
       <div className="flex justify-center">
         <p className="popular_text font-poppins text-[34px]">
           Explore new and popular styles</p>
